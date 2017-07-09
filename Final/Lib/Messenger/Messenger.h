@@ -26,6 +26,8 @@ public:
   uint8_t available();
   void attach(messengerCallbackFunction newFunction);
   
+  uint8_t test();
+  
 private:
   void init(char separator);
   uint8_t next();
@@ -37,6 +39,8 @@ private:
   
   char* current; // Pointer to current data
   char* last;
+
+  uint8_t test_var;
   
   char token[2];
   uint8_t dumped;

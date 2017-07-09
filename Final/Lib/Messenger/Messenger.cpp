@@ -5,7 +5,7 @@ extern "C" {
   #include <stdlib.h>
 }
 
-#include "WProgram.h"
+#include "Arduino.h"
 #include "Messenger.h"
 
 
@@ -30,6 +30,7 @@ void Messenger::init(char separator)
 	bufferLength = MESSENGERBUFFERSIZE;
     bufferLastIndex = MESSENGERBUFFERSIZE -1;
     reset();
+	test_var = 0;
 }
 
 void Messenger::attach(messengerCallbackFunction newFunction) {
@@ -140,6 +141,7 @@ uint8_t Messenger::process(int serialByte) {
         reset();
         messageState = 1;
         current = buffer;
+	test_var = 5;
         break;
       default:
           buffer[bufferIndex]=serialByte;
@@ -147,9 +149,14 @@ uint8_t Messenger::process(int serialByte) {
            if (bufferIndex >= bufferLastIndex) reset();
          }
       } 
+
       if ( messageState == 1 && callback != NULL) (*callback)();
       return messageState;
  }
 
 
 
+uint8_t Messenger::test() {
+	return test_var;
+
+}
