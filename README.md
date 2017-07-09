@@ -8,3 +8,7 @@
 -Install the turtlebot packages using this link http://wiki.ros.org/turtlebot/Tutorials/indigo/Turtlebot%20Installation
 ### Installation
 The code is comaptible with ROS Indigo. 
+
+## Libraries used in Arduino
+
+* cmdMessenger: Handiling messages (texts,data,etc) sent from PC to ports 
