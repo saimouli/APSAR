@@ -51,8 +51,8 @@ Messenger Messenger_Handler = Messenger();
 # define Left_Encoder_PinB 9
 
 //encoder interrput pins
-# define Encoder_inter_pin1 12 
-# define Encoder_inter_pin2 13
+# define Encoder_inter_pin1 1 
+# define Encoder_inter_pin2 9
 
 volatile long Right_Encoder_Ticks= 0;
 volatile bool Right_EncoderBSet;
@@ -70,8 +70,6 @@ volatile bool Left_EncoderBSet;
 # define rightPWM 2
 # define rightpin1 6
 # define rightpin2 7
-
-# define INTERRUPT_PIN 14 // for IMU pin
 
 // ================================================================
 // ===                    ULTRASONIC PINS                       ===
