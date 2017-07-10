@@ -173,6 +173,25 @@ void loop(){
   Update_DistanceSensor();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void Update_Time(){
+  
+  CurrentMicrosecs = micros();
+  LastUpdateMillisecs = millis();
+  MicrosecsSinceLastUpdate = CurrentMicrosecs - LastUpdateMicrosecs;
+  if (MicrosecsSinceLastUpdate < 0){
+    MicrosecsSinceLastUpdate = INT_MIN - LastUpdateMicrosecs + CurrentMicrosecs;
+    }
+  LastUpdateMicrosecs = CurrentMicrosecs;
+  SecondsSinceLastUpdate = MicrosecsSinceLastUpdate / 1000000.0;
+
+  Serial.print("t");
+  Serial.print("\t");
+  Serial.print(LastUpdateMicrosecs);
+  Serial.print("\t");
+  Serial.print(SecondsSinceLastUpdate);
+  Serial.print("\n");
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Read from Serial Function
 
@@ -252,12 +271,12 @@ void moveRightMotor(float speedvalue1){ // for the logic below, see motor final 
     digitalWrite(rightpin2,LOW);
     analogWrite(rightPWM,speedvalue1);// right motor 
   }
-  else if(speedValue<0){ // reverse
+  else if(speedvalue1<0){ // reverse
     digitalWrite(rightpin1,LOW);
     digitalWrite(rightpin2,HIGH);
     analogWrite(rightPWM,abs(speedvalue1));// right motor
   } 
-  else if (speedValue==0){ //stop
+  else if (speedvalue1==0){ //stop
     digitalWrite(rightpin1,LOW);
     digitalWrite(rightpin2,LOW);
     analogWrite(rightPWM,speedvalue1);// right motor
@@ -270,12 +289,12 @@ void moveLeftMotor(float speedvalue2){
    digitalWrite(leftpin2,LOW);
    analogWrite(leftPWM,speedvalue2);//left motor
   }
-  else if(speedValue<0){ // reverse
+  else if(speedvalue2<0){ // reverse
    digitalWrite(leftpin1,LOW);
    digitalWrite(leftpin2,HIGH);
    analogWrite(leftPWM,abs(speedvalue2));
   } 
-  else if (speedValue==0){ //stop
+  else if (speedvalue2==0){ //stop
    digitalWrite(leftpin1,LOW);
    digitalWrite(leftpin2,LOW);
    analogWrite(leftPWM,speedvalue2);
