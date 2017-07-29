@@ -1,31 +1,3 @@
-index.js
-DETAILS
-ACTIVITY
-index.js
-Sharing Info
-K
-General Info
-Type
-Javascript
-Size
-4 KB (4,141 bytes)
-Storage used
-0 bytesOwned by someone else
-Location
-src
-Owner
-Krehl Stringer
-Modified
-May 2, 2017 by Krehl Stringer
-Opened
-10:02 AM by me
-Created
-May 2, 2017
-Description
-No description
-Download permissions
-Viewers can download
-
 // Version for sending a goal... working
 
 'use strict';
